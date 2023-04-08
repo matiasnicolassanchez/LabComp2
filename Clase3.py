@@ -134,7 +134,6 @@ def menor_media(vector):
 # print(f"En su curso hay {menor_media(alturas)} alumnos con altura menor a la media")
 
 
-
 def cargar_elementos(n):
     almacenamiento = [None] * n
     cont = 0
@@ -150,9 +149,9 @@ def cargar_elementos(n):
     if cont == n:
         print(f"Su almacenamiento de {cant_elementos} elementos se ha LLENADO COMPLETAMENTE")
 
+
 # cant_elementos = int(input("Ingrese la cantidad de elementos que va a almacenar: "))
 # cargar_elementos(cant_elementos)
-
 
 
 def sum_matrices3x3():
@@ -188,11 +187,35 @@ def sum_matrices3x3():
             print(" ", matriz_3[i][j], end="")
         print(" ")
 
+
 # sum_matrices3x3()
 
 def quiniela():
-    num_montos = [[int() for ind0 in range(2)] for ind1 in range(31)]
+    ocurrencias = {}
+    num_montos = [[int() for ind0 in range(2)] for ind1 in range(5)]
     print("¡¡ Carguemos los números ganadores y sus montos pagados !!")
-    for i in range(31):
+    for i in range(5):
         for j in range(2):
-            num_montos[i][j] =
+            if j == 0:
+                num_montos[i][j] = int(input(f"Ingrese el número ganador el dia {i + 1} de enero: "))
+                if num_montos[i][j] in ocurrencias:
+                    ocurrencias[num_montos[i][j]] += 1
+                else:
+                    ocurrencias[num_montos[i][j]] = 1
+            else:
+                num_montos[i][j] = int(input(f"Ingrese el monto que le correspondio al número {num_montos[i][0]}"
+                                             f" el dia {i + 1} de enero: "))
+    for i in range(5):
+        for j in range(2):
+            num_montos[i][j]
+            print(" ", num_montos[i][j], end="")
+        print(" ")
+    print(f"LA OCURRENCIA DE LOS NÚMEROS EN EL MES DE ENERO ES LA SIGUIENTE: {ocurrencias} \n"
+          "AHORA VEAMOS QUE PREMIO LE CORRESPONDIO A CADA NÚMERO GANADOR: ")
+    for i in ocurrencias:
+        for x in range(5):
+            if num_montos[x][0] == i:
+                print(f"El número {i} el dia {x + 1} de enero, cobro un premio de {num_montos[x][1]} pesos")
+
+
+# quiniela()
