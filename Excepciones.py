@@ -1,5 +1,5 @@
 try:
-    print(resultado=10/0)
+    print(resultado=10 / 0)
 except ZeroDivisionError:
     print("NO ES POSIBLE REALIZAR LA DIVISION POR CERO")
 try:
@@ -16,3 +16,19 @@ try:
     colores["blanco"]
 except KeyError:
     print("EL VALOR QUE BUSCA NO SE ENCUENTRA")
+
+
+def suma_num_positivos(num1, num2):
+    if num1 <= 0 or num2 <= 0:
+        raise Exception("ValueError: SOLO SE DEBEN INGRESAR VALORES POSITIVOS")
+    else:
+        return num1 + num2
+
+
+n1 = 8
+n2 = 0
+
+try:
+    print(suma_num_positivos(n1, n2))
+except Exception as err:
+    print(err.__str__())
