@@ -158,7 +158,6 @@ def sum_matrices3x3():
     matriz_1 = [[int() for ind0 in range(3)] for ind1 in range(3)]
     matriz_2 = [[int() for ind0 in range(3)] for ind1 in range(3)]
     matriz_3 = [[int() for ind0 in range(3)] for ind1 in range(3)]
-    cont = 0
     print("¡¡ COMENCEMOS A CARGAR LA PRIMER MATRIZ DE 3x3 QUE DESEA SUMAR !!")
     for i in range(3):
         for j in range(3):
@@ -194,10 +193,12 @@ def quiniela():
     ocurrencias = {}
     num_montos = [[int() for ind0 in range(2)] for ind1 in range(5)]
     print("¡¡ Carguemos los números ganadores y sus montos pagados !!")
+    # Se cargar los numero ganadores con sus montos por dia en la matriz
     for i in range(5):
         for j in range(2):
             if j == 0:
                 num_montos[i][j] = int(input(f"Ingrese el número ganador el dia {i + 1} de enero: "))
+                # Aqui se verifica si el numero ya salio otro dia para aumentar el contador y sino agregarlo en el diccionario de ocurrencias e iniciar el contador
                 if num_montos[i][j] in ocurrencias:
                     ocurrencias[num_montos[i][j]] += 1
                 else:
@@ -205,13 +206,16 @@ def quiniela():
             else:
                 num_montos[i][j] = int(input(f"Ingrese el monto que le correspondio al número {num_montos[i][0]}"
                                              f" el dia {i + 1} de enero: "))
+    # Se imprimi la matriz de los numeros ganadores con sus montos
     for i in range(5):
         for j in range(2):
             num_montos[i][j]
             print(" ", num_montos[i][j], end="")
         print(" ")
+    # Se imprimen los números que han salido con sus respectivas ocurrencias
     print(f"LA OCURRENCIA DE LOS NÚMEROS EN EL MES DE ENERO ES LA SIGUIENTE: {ocurrencias} \n"
           "AHORA VEAMOS QUE PREMIO LE CORRESPONDIO A CADA NÚMERO GANADOR: ")
+    # Se recorre el diccionario para mostrar por cada numero salido que dia en que salio y su premio
     for i in ocurrencias:
         for x in range(5):
             if num_montos[x][0] == i:
