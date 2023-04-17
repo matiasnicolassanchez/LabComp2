@@ -27,17 +27,17 @@ from typing import TextIO
 #
 arch = r"D:\Usuario\Desktop\MATIAS\UTN\Tec. en Programacion\Lab de Computación II\Facturacion.txt"
 archivo_ordenado = r"D:\Usuario\Desktop\MATIAS\UTN\Tec. en Programacion\Lab de Computación II\Facturacion Ordenada.txt"
-with open(arch, "r") as archivo , open(archivo_ordenado, "a") as file:
-    lectura = archivo.readlines()
-    lectura.sort()
+with open(arch, "r") as archivo, open(archivo_ordenado, "a") as file:
+    lectura = archivo.readlines().sort()
     for i in lectura:
         file.write(i)
-    next(archivo, None)
-    for linea in archivo:
+    for linea in lectura:
         linea = linea.rstrip()
         print(linea)
         separador = ";"
         lista = linea.split(separador)
+        if lista[1] == "Trimestre 1":
+            break
         año = lista[0]
         fact_anual = 0
         media = 0
