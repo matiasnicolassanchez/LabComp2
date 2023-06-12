@@ -12,18 +12,18 @@ class Controller:
         while True:
             entrada_menu = self.vista.menu_principal()
             if entrada_menu == 1:
-                Controller.consultar_disponibilidad(self)
+                self.consultar_disponibilidad()
                 pass
             if entrada_menu == 2:
-                Controller.registrar_prestamo(self)
+                self.registrar_prestamo()
             if entrada_menu == 3:
-                Controller.registrar_devolucion(self)
+                self.registrar_devolucion()
 
     # Lleva a cabo la primera opción del menu que es mostrar la disponibilidad de los libros
     def consultar_disponibilidad(self):
-        Libros.get_registros(self)
-        disponibles = Libros.get_disponibilidad(self)
-        Vista.mostrar_disponibilidad(self, disponibles)
+        self.libros.get_registros()
+        disponibles = self.libros.get_disponibilidad()
+        self.vista.mostrar_disponibilidad(disponibles)
 
     # Lleva a cabo la segunda opción del menu que es registrar el prestamo de un libro
     def registrar_prestamo(self):

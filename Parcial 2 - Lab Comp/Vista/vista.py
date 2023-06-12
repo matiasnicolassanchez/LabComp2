@@ -31,7 +31,7 @@ class Vista:
         ingreso = 0
         try:
             ingreso = int(input("INGRESE EL LIBRO QUE DESEA REGISTRAR: "))
-            while 1 > libro > len(libros):
+            while 1 > ingreso > len(libros):
                 print("¡¡ LA OPCIÓN INGRESADA NO ES UN VALOR DE LA LISTA DE LIBROS !!")
                 ingreso = int(input("INGRESE EL LIBRO QUE DESEA REGISTRAR: "))
         except ValueError:
