@@ -18,12 +18,15 @@ class Controlador:
         self.agenda.set_registros(registros)
 
     def registrar_nueva_reserva(self):
-        self.inicializador()
         fecha, titular = self.vista.nueva_reserva()
         self.agenda.set_nueva_reserva(fecha, titular)
-        self.agenda.actualizar_registros()
 
-    def modificar_reserva_registrada(self):
-        self.inicializador()
+    def obtener_registros_agenda(self):
+        agenda = self.agenda.obtener_fechas()
+        return agenda
+
+    def consultar_fecha(self):
         fecha = self.vista.pedir_fecha()
+        fecha_retorno = self.agenda.get_reserva(fecha)
+        print(fecha_retorno)
 
