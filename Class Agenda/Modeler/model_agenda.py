@@ -1,8 +1,3 @@
-import datetime
-
-from self import self
-
-
 class Agenda:
 
     def __init__(self):
@@ -49,7 +44,7 @@ class Agenda:
                 while True:
                     dia = int(fecha[0:2])
                     mes = int(fecha[3:5])
-                    año = int(fecha[6:9])
+                    año = int(fecha[6:11])
                     if dia == 30:
                         dia = 1
                         mes = mes + 1

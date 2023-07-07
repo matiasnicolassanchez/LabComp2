@@ -1,5 +1,5 @@
-from Modeler.agenda import Agenda
-from View.views import Vistas
+from Modeler.model_agenda import Agenda
+from View.view_agenda import Vistas
 
 
 class Controlador:
@@ -28,5 +28,6 @@ class Controlador:
     def consultar_fecha(self):
         fecha = self.vista.pedir_fecha()
         fecha_retorno = self.agenda.get_reserva(fecha)
-        print(fecha_retorno)
+        return fecha_retorno
+
 
